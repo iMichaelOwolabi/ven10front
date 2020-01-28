@@ -70,6 +70,7 @@ class App extends Component {
     }
     return this.setState({
       loading: false,
+      error: false,
       data: response.data.data[0]
     })
   }
@@ -81,9 +82,7 @@ class App extends Component {
     const { data } = this.state;
     let preview  = (
       <Fragment>
-        <div className="img">
         <img src={imgUrl} alt="placeholder"/>
-        </div>
         <div className="description">
         </div>
       </Fragment>
@@ -92,15 +91,13 @@ class App extends Component {
     if (data.name) {
       preview = (
         <Fragment>
-        <div className="img">
         <img src={data.image} alt="placeholder"/>
-        </div>
         <div className="description">
-        <h1>{data.name}</h1>
-        <h3>{data.description}</h3>
-        <p><span>Category:</span> {data.category}</p>
-        <p><span>Color:</span> {data.color}</p>
-        <p><span>Price:</span> $ {data.price}</p>
+          <h1>{data.name}</h1>
+          <h3>{data.description}</h3>
+          <p><span>Category:</span> {data.category}</p>
+          <p><span>Color:</span> {data.color}</p>
+          <p><span>Price:</span> $ {data.price}</p>
         </div>
       </Fragment>
       )
@@ -116,13 +113,13 @@ class App extends Component {
           <div className="product">
             <div className="add-product">
               <form>
-                <label>Product Name</label> <input type="text" name="name" required value={name} onChange={this.handleChange}/>
-                <label>Description</label> <input type="text" name="description" value={description} required onChange={this.handleChange}/>
-                <label>Price</label> <input type="number" name="price" required value={price} onChange={this.handleChange}/>
-                <label>Category</label> <input type="text" name="category" required value={category} onChange={this.handleChange}/>
-                <label>Image URL</label> <input type="text" name="image" required value={image} onChange={this.handleChange}/>
-                <label>Color</label> <input type="text" name="color" required value={color} onChange={this.handleChange}/>
-                <p>{error}</p>
+                <p><label>Product Name</label> <input type="text" name="name" required value={name} onChange={this.handleChange}/></p>
+                <p><label>Description</label> <input type="text" name="description" value={description} required onChange={this.handleChange}/></p>
+                <p><label>Price</label> <input type="number" name="price" required value={price} onChange={this.handleChange}/></p>
+                <p><label>Category</label> <input type="text" name="category" required value={category} onChange={this.handleChange}/></p>
+                <p><label>Image URL</label> <input type="text" name="image" required value={image} onChange={this.handleChange}/></p>
+                <p><label>Color</label> <input type="text" name="color" required value={color} onChange={this.handleChange}/></p>
+                <p className="error">{error}</p>
                 <button type="submit" disabled={this.state.loading} onClick={this.createProductHandler}>{buttonText}</button>
               </form>
             </div>

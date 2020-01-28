@@ -14,8 +14,9 @@
   justify-content: center;
   align-items: center;
   padding: 40px;
-  /* margin: 50px; */
-  background-color: #F5F5F5
+  width: 100%;
+  background-color: #F5F5F5;
+  min-width: 480px;
 }
 
 .product .add-product {
@@ -24,26 +25,34 @@
   width: 40%;
 }
 
-.product input {
+.product p {
   display: flex;
   align-items: center;
-  margin: 5px 0;
+  padding: 5px;
+}
+
+.product .add-product label {
+  width: 150px;
+  font-size: 16px;
+  text-align: left;
+  color: #333;
+}
+
+.product input {
   width: 250px;
   padding: 10px;
 }
 
-.product label {
-  color: #333;
-}
-
-.add-product p {
+.add-product .error {
   color: red;
   font-size: 14px;
   text-align: justify;
+  margin-left: 152px;
+
 }
 
 .product button {
-  margin: 10px 0;
+  margin: 0 157px;
   padding: 10px;
   font-size: 16px;
   background-color: black;
@@ -58,15 +67,13 @@
   display: flex;
   width: 50%;
   flex-direction: row;
-  height: 450px;
   justify-content: space-around;
+  min-width: 480px;
 }
 
-.product .preview img {
-  height: 445px;
-}
 .preview img {
   width: 450px;
+  margin-right: 20px;
 }
 
 .preview .description {
@@ -74,9 +81,68 @@
   align-items: flex-start;
   flex-direction: column;
   color: #333;
+  justify-content: center;
 }
 
 .preview .description span {
   color: #333;
   font-size: 15px;
+}
+
+@media screen and (max-width: 1340px) {
+  .product {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product .add-product {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 40px;
+  }
+  
+  .product p {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .product .preview {
+    width: 100%;
+  }
+
+  .product .preview img {
+    margin-right: 20px;
+  }
+
+  .product .preview p {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .product .preview {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .product .add-product {
+    min-width: 480px;
+  }
+
+  .product input {
+    width: 180px;
+  }
+
+  .product .add-product label {
+    width: 150px;
+    margin-right: 5px;
+    font-size: 16px;
+    color: #333;
+  }
 }
