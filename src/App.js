@@ -20,7 +20,7 @@ class App extends Component {
       data: []
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.createProductHandler = this.createProductHandler.bind(this);
   }
 
   handleChange(e) {
@@ -33,7 +33,7 @@ class App extends Component {
     })
   };
 
-   async handleSubmit(e){
+   async createProductHandler(e){
     e.preventDefault();
     this.setState({
       loading: true
@@ -123,7 +123,7 @@ class App extends Component {
                 <label>Image URL</label> <input type="text" name="image" required value={image} onChange={this.handleChange}/>
                 <label>Color</label> <input type="text" name="color" required value={color} onChange={this.handleChange}/>
                 <p>{error}</p>
-                <button type="submit" disabled={this.state.loading} onClick={this.handleSubmit}>{buttonText}</button>
+                <button type="submit" disabled={this.state.loading} onClick={this.createProductHandler}>{buttonText}</button>
               </form>
             </div>
 
