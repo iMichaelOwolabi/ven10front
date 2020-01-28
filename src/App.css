@@ -1,5 +1,6 @@
 .container {
   height: 100vh;
+  overflow: auto;
 }
 
 .container p {
@@ -84,9 +85,16 @@
   justify-content: center;
 }
 
-.preview .description span {
+.preview .description p {
+  font-size: 20px;
   color: #333;
+}
+
+.preview .description span {
   font-size: 15px;
+  margin-right: 5px;
+  width: 64px;
+  text-align: left;
 }
 
 @media screen and (max-width: 1340px) {
